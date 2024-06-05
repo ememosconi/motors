@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: motors
+spec:
+    selector:
+        matchLabels:
+            app: motors
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                app: motors
+        spec:
+            containers:
+            - name: motors
+              image: motors:0.2
+              imagePullPolicy: Never
+              env:
+                  - name: "SPRING_PROFILES_ACTIVE"
+                    value: "desa"
+              ports:
+              - name: http
+                containerPort: 8080
+

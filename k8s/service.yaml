@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: motors
+spec:
+    selector:
+        app: motors
+    ports:
+    - name: http
+      protocol: TCP
+      port: 8080
